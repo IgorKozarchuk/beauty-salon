@@ -105,6 +105,7 @@ section
 .mm-navbar
 	height: auto
 	position: relative
+	border: none
 	.mm-title
 		padding: 0
 		img
@@ -112,7 +113,42 @@ section
 			height: auto
 			margin: 10px 0 35px
 
+// html.mm-opened
+// 	overflow-y: scroll
+// .mm-panels > .mm-panels.mm-hasnavbar
+// 	right: -18px
+
+.mm-listview > li:not(.mm-divider):after
+	display: none
+.mm-menu.mm-theme-black .mm-listview > li.mm-selected > a:not(.mm-next), .mm-menu.mm-theme-black .mm-listview > li.mm-selected > span
+	background-color: transparent
+	color: $accent
 .mm-panels > .mm-panel::after, .mm-panels > .mm-panel::before
 	height: 0
+.mm-panels > .mm-panel > .mm-listview:first-child, .mm-panels >  .mm-panel > .mm-navbar + .mm-listview
+	margin-top: 0
+
+.mm-listview
+	> li
+		> a
+			transition: color 0.25s ease
+			padding-left: 14%
+			padding-right: 14%
+			top: 8px
+			&:hover
+				color: $accent
+				&::before
+					color: $accent
+			&::before
+				content: "\f219"
+				font-family: fontawesome
+				margin-right: 8px
+				text-decoration: none
+				font-size: 12px
+				color: #fff
+				transition: color 0.25s ease
+		&.active
+			& > a
+				color: $accent
 
 @import "media" // Всегда в конце
