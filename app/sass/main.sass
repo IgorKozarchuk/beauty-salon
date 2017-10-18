@@ -158,10 +158,11 @@ section
 			height: auto
 			margin: 10px 0 35px
 
-// html.mm-opened
-// 	overflow-y: scroll
-// .mm-panels > .mm-panels.mm-hasnavbar
-// 	right: -18px
+// to avoid window jump becasue of scrollbar appear/disappear
+html.mm-opened
+	overflow-y: scroll
+.mm-panels > .mm-panels.mm-hasnavbar
+	right: -18px
 
 .mm-listview > li:not(.mm-divider):after
 	display: none
@@ -294,6 +295,36 @@ section
 		font-family: firasans, sans
 		text-align: center
 
+$colors: $blue, $pink, $accent
+@for $i from 1 through length($colors)
+	.carousel-services .owl-item:nth-child(#{length($colors)}n+#{$i})
+		background-color: nth($colors, $i)
 
+.carousel-services
+	background-color: $dark
+	&-item
+		color: #fff
+		font-size: 18px
+		font-weight: 300
+		position: relative
+		display: flex
+		flex-direction: column-reverse
+		&:hover
+			.carousel-services-image
+				opacity: 1
+	.owl-item:nth-child(2n)
+		.carousel-services-item
+			flex-direction: column // swap image and text container
+	&-image
+		background-size: cover
+		background-position: center
+		opacity: 0.7
+		transition: opacity 0.5s ease
+	&-content
+		// display: flex
+
+.owl-carousel
+	.owl-item
+		backface-visibility: inherit // to avoid flickering
 
 @import "media" // Всегда в конце

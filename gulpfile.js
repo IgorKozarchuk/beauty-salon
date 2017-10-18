@@ -11,7 +11,7 @@ var gulp           = require('gulp'),
 	cache          = require('gulp-cache'),
 	autoprefixer   = require('gulp-autoprefixer'),
 	ftp            = require('vinyl-ftp'),
-	notify         = require("gulp-notify"),
+	notify         = require('gulp-notify'),
 	rsync          = require('gulp-rsync');
 
 // Пользовательские скрипты проекта
@@ -29,6 +29,7 @@ gulp.task('js', ['common-js'], function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
 		'app/libs/mmenu/jquery.mmenu.all.js',
+		'app/libs/owlcarousel/owl.carousel.min.js',
 		'app/js/common.min.js', // Всегда в конце
 		])
 	.pipe(concat('scripts.min.js'))
