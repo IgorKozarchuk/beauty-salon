@@ -19,9 +19,18 @@ $(function() {
 		$('.hamburger').removeClass('is-active');
 	});
 
+	// initialize carousel before runnig carouselService() to avoid unequal heights of -services-content and -services-image
+	$('.carousel-services').on('initialized.owl.carousel', function() {
+		setTimeout(function() {
+			carouselService();
+		}, 100);
+	})
+
+	// carousel function
 	$('.carousel-services').owlCarousel({
 		loop: true,
 		nav: true,
+		dots: false,
 		smartSpeed: 700,
 		navText: ['<i class="fa fa-angle-double-left"></i>', '<i class="fa fa-angle-double-right"></i>'],
 		responsiveClass: true,
@@ -38,6 +47,15 @@ $(function() {
 		}
 	});
 
+	// equal heights of .carousel-services-content items
+	$('.carousel-services-content').equalHeights();
+
+	// fix for old versions of equalHeights()
+	// window.onresize = function() {
+	// 	$('.carousel-services-content').equalHeights();
+	// };
+
+	// makes carousel-services-content and carousel-services-image the same size
 	function carouselService() {
 		$('.carousel-services-item').each(function() {
 			var item = $(this);
@@ -47,4 +65,8 @@ $(function() {
 	}
 	carouselService();
 
+	// change last word in .h3
+	$('.carousel-servies-composition .h3').each(function() {
+		$(this).html($(this).html().replace(/(\S+)\s*$/, '<span>$1</span>'));
+	});
 });

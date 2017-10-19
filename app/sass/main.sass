@@ -103,6 +103,17 @@ body
 		background-color: darken($accent, 5%)
 		&::after
 			opacity: .32
+	&.button-white
+		background-color: #fff
+		color: #444
+		&::after
+			background-color: rgba(#000, 0.6)
+		&:hover
+			&::after
+				background-color: rgba(#000, 0.2)
+		&:active
+			&::after
+				background-color: rgba(#000, 0.4)
 
 .logo
 	img
@@ -114,7 +125,7 @@ body
 	position: absolute
 	right: 85px
 	top: 44px
-	font-family: firasans
+	font-family: firasans, sans-serif
 	font-size: 22px
 	white-space: nowrap
 	.fa
@@ -292,7 +303,7 @@ html.mm-opened
 		margin-right: 5px
 		color: #555
 	.phone-header
-		font-family: firasans, sans
+		font-family: firasans, sans-serif
 		text-align: center
 
 $colors: $blue, $pink, $accent
@@ -312,19 +323,78 @@ $colors: $blue, $pink, $accent
 		&:hover
 			.carousel-services-image
 				opacity: 1
+		.carousel-logo
+			text-align: center
+			img
+				width: 100px
+				height: auto
+				display: inline-block
+
 	.owl-item:nth-child(2n)
 		.carousel-services-item
 			flex-direction: column // swap image and text container
+	
 	&-image
 		background-size: cover
 		background-position: center
 		opacity: 0.7
 		transition: opacity 0.5s ease
+	
 	&-content
-		// display: flex
+		position: relative
+		padding: 60px 10%
+
+	.owl-nav
+		position: absolute
+		top: 0
+		width: 100%
+		.owl-prev, .owl-next
+			position: absolute
+			width: 64px
+			background-color: #fff
+			color: $dark
+			text-align: center
+			line-height: 64px
+			font-size: 26px
+		.owl-prev
+			left: 0
+		.owl-next
+			right: 0
+
+.carousel-servies-composition
+	width: 100%
+	margin: auto
+	text-align: center
+	.h3
+		font-weight: 800
+		font-size: 28px
+		margin-top: 5px
+		margin-bottom: 20px
+		span
+			font-weight: 300
+			font-size: 18px
+			display: block
+
+.carousel-services-list
+	margin: 0
+	padding: 0
+	list-style-type: none
+	margin-bottom: 25px
+	li
+		padding: 8px
+		border-bottom: 1px solid rgba(#000, 0.12)
+		&:last-child
+			border-bottom: none
+		strong
+			font-family: firasans, sans-serif
+			color: #4a4a4a
+		.fa.fa-rub
+			font-size: 14px
 
 .owl-carousel
 	.owl-item
 		backface-visibility: inherit // to avoid flickering
+
+
 
 @import "media" // Всегда в конце
