@@ -69,4 +69,8 @@ $(function() {
 	$('.carousel-servies-composition .h3').each(function() {
 		$(this).html($(this).html().replace(/(\S+)\s*$/, '<span>$1</span>'));
 	});
+	// change 1st word in .h2
+	$('section .h2').each(function() {
+		$(this).html($(this).html().replace(/^(\S+)/, '<span>$1</span>'));
+	});
 });
