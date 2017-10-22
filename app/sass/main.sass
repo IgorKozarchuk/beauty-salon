@@ -27,13 +27,6 @@
 	color: #666
 	opacity: 1
 
-body input:focus:required:invalid,
-body textarea:focus:required:invalid
-	color: #666
-body input:required:valid,
-body textarea:required:valid
-	color: #666
-
 html, body
 	height: 100%
 
@@ -411,6 +404,14 @@ $colors: $blue, $pink, $accent
 		p
 			margin: 30px 0
 			font-size: 18px
+	&-contact
+		&::before
+			position: absolute
+			right: 0
+			content: ""
+			width: 50%
+			height: 100%
+			background-color: rgba($accent, 0.92)
 
 .section-overlay
 	&::before
@@ -447,5 +448,101 @@ $colors: $blue, $pink, $accent
 			&::before
 				content: "\f104"
 
+input, textarea, select, .selectize-control .selectize-input, .selectize-control.single .selectize-input.input-active
+	background-color: transparent
+	border: 1px solid rgba(#000, 0.1)
+	border-bottom: 1px solid rgba(#000, 0.1)
+	border-radius: 2px
+	padding: 8px 22px
+	outline: none
+	display: inline-block
+	font-size: 16px
+	color: #333
+select
+	padding: 10px 22px
+	cursor: pointer
+
+.selectize-control .selectize-input
+	box-shadow: none
+	overflow: inherit
+	line-height: inherit
+	text-align: left
+	input
+		font-size: 16px
+	&.dropdown-active::before
+		background-color: transparent
+
+.selectize-control.single
+	.selectize-input, &.dropdown-active
+		&::after
+			border: none
+			font-family: fontawesome
+			content: "\f107"
+			position: absolute
+			right: 30px
+			top: 12px
+			cursor: pointer
+		&.dropdown-active::after
+			content: "\f106"
+	.selectize-dropdown
+		font-size: 16px
+		border: none
+		border-radius: 0
+		text-align: left
+		&-content
+			.option
+				padding: 10px 22px
+				&.active
+					background-color: lighten($accent, 15)
+
+.success
+	display: none
+	position: absolute
+	top: 0
+	bottom: 0
+	left: 0
+	right: 0
+	text-transform: uppercase
+	font-weight: bold
+	z-index: 10
+	span
+		margin: auto
+	& ~ *
+		transition: all 0.5 ease
+	&.active
+		& ~ *
+			opacity: 0.5
+			-webkit-filter: blur(6px)
+			filter: blur(6px)
+
+.contact
+	padding: 25% 0
+	position: relative
+	&-logo
+		img
+			width: 100px
+			height: auto
+	.form-heading
+		margin-top: 0
+		font-size: 30px
+		color: #fff
+	p
+		margin-top: 0
+	input, textarea, select, .selectize-control .selectize-input, .selectize-control.single .selectize-input.input-active
+		color: #fff
+		width: 100%
+		margin-top: 17px
+		&::-webkit-input-placeholder
+			color: #fff
+			opacity: 1
+		&::-ms-input-placeholder
+			color: #fff
+		&::-moz-placeholder
+			color: #fff
+			opacity: 1
+		option
+			color: #333
+	.button
+		margin-top: 40px
 
 @import "media" // Всегда в конце

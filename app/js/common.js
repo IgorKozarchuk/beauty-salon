@@ -73,4 +73,24 @@ $(function() {
 	$('section .h2').each(function() {
 		$(this).html($(this).html().replace(/^(\S+)/, '<span>$1</span>'));
 	});
+
+	// selectize
+	$('select').selectize();
+
+	// UniMail E-mail Ajax Send
+	$("form.contact").submit(function() {
+		var th = $(this);
+		$.ajax({
+			type: "POST",
+			url: "php/mail.php",
+			data: th.serialize()
+		}).done(function() {
+			$(th).find('.success').addClass('active').css('display', 'flex').hide().fadeIn();
+			setTimeout(function() {
+				$(th).find('.success').removeClass('active').fadeOut();
+				th.trigger("reset");
+			}, 2000);
+		});
+		return false;
+	});
 });
