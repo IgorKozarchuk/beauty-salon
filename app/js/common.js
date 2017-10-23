@@ -93,4 +93,13 @@ $(function() {
 		});
 		return false;
 	});
+
+	// reviews
+	$('.reviews-container').owlCarousel({
+		loop: true,
+		items: 1,
+		dots: true,
+		smartSpeed: 700,
+		autoHeight: true
+	});
 });
