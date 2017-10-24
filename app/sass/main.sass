@@ -415,6 +415,12 @@ $colors: $blue, $pink, $accent
 			width: 50%
 			height: 100%
 			background-color: rgba($accent, 0.92)
+	&-partners.section-overlay
+		&::before
+			background-color: #fff
+		.h2
+			span
+				color: $accent
 
 .section-overlay
 	&::before
@@ -607,5 +613,33 @@ select
 		top: 151px
 		right: -60px
 		transform: rotate(0deg)
+
+.partners
+	.partner
+		display: flex
+	.owl-item
+		img
+			display: inline-block
+			max-width: 100%
+			width: auto
+			margin: auto
+	.owl-nav
+		position: absolute
+		top: 0
+		width: 100%
+		z-index: 2
+		> div
+			position: absolute
+			top: 65px
+			color: #999
+			font-size: 30px
+			transition: opacity 0.5s ease
+			padding: 0 10px
+			&:hover
+				opacity: 0.6
+			&.owl-prev
+				left: -60px
+			&.owl-next
+				right: -60px
 
 @import "media" // Всегда в конце
